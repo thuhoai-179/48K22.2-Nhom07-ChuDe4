@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f9f9f9;
+    }
+    .container {
+        border: 1px solid #ccc;
+        min-height: auto;
+        height: auto;
+        background-color: #fcfaee;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        max-width: 1000px;
+        margin: 10px auto;
+    }
+    h2 {
+        text-align: center;
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+    form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    form label {
+        font-size: 14px;
+        color: #333;
+        font-weight: 500;
+    }
+    form input[type="text"],
+    form input[type="file"],
+    form textarea {
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        color: white;
+        text-transform: uppercase;
+        transition: background-color 0.3s;
+        width: 48%;
+    }
+    {% comment %} .btn-tao {
+        background-color: #4CAF50;
+    }
+    .btn-tao:hover {
+        background-color: #45A049;
+    }
+    .btn-huy {
+        background-color: #f44336;
+    }
+    .btn-huy:hover {
+        background-color: #da190b;
+    }
+    .btn a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        text-align: center; {% endcomment %}
+    
+    .ct {
+        margin:auto;
+        margin-left:450px;
+    }
+</style>
+<div class="container">
+    <h2>Sửa Bài Viết</h2><br>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="ct">
+            <button type="submit" style='background-color:black;color:white'>Lưu</button>
+            <button type="submit" style='background-color:silver;border:1px silver solid'><a href="{% url 'baiviet' %}" style='color:black'>Hủy</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
